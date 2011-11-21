@@ -40,7 +40,7 @@ namespace prep.collections
     public static IMatchAn<Movie> is_published_by_pixar_or_disney()
     {
       return is_published_by(ProductionStudio.Pixar)
-        .or(is_published_by(ProductionStudio.Disney))
+        .or(is_published_by(ProductionStudio.Disney));
     }
   }
 }
