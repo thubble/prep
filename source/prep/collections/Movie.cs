@@ -43,5 +43,10 @@ namespace prep.collections
       return is_published_by(ProductionStudio.Pixar)
         .or(is_published_by(ProductionStudio.Disney));
     }
+
+	public override string ToString()
+	{
+		return this.title;
+	}
   }
 }

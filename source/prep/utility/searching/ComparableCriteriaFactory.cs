@@ -2,16 +2,23 @@
 
 namespace prep.utility.searching
 {
-  public class ComparableCriteriaFactory<ItemToFilter, PropertyType> where PropertyType : IComparable<PropertyType>
-  {
-    public IMatchAn<ItemToFilter> greater_than(PropertyType value)
-    {
-      throw new NotImplementedException();
-    }
+	public class ComparableCriteriaFactory<ItemToFilter, PropertyType> where PropertyType : IComparable<PropertyType>
+	{
+		PropertyAccessor<ItemToFilter, PropertyType> accessor;
 
-    public IMatchAn<ItemToFilter> between(PropertyType start, PropertyType end)
-    {
-      throw new NotImplementedException();
-    }
-  }
+		public ComparableCriteriaFactory(PropertyAccessor<ItemToFilter, PropertyType> accessor)
+		{
+			this.accessor = accessor;
+		}
+
+		public IMatchAn<ItemToFilter> greater_than(PropertyType value)
+		{
+			return new AnonymousCriteria<ItemToFilter>(x => accessor(x).CompareTo(value) > 0);
+		}
+
+		public IMatchAn<ItemToFilter> between(PropertyType start, PropertyType end)
+		{
+			return new AnonymousCriteria<ItemToFilter>(x => accessor(x).CompareTo(start) >= 0 && accessor(x).CompareTo(end) <= 0);
+		}
+	}
 }
