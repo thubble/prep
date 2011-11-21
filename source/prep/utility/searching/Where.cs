@@ -1,5 +1,4 @@
-using System.Collections.Generic;
-using prep.collections;
+using System;
 
 namespace prep.utility.searching
 {
@@ -10,30 +9,10 @@ namespace prep.utility.searching
     {
       return new CriteriaFactory<ItemToFilter, PropertyType>(accessor);
     }
-  }
 
-  public class CriteriaFactory<ItemToFilter, PropertyType>
-  {
-    PropertyAccessor<ItemToFilter, PropertyType> accessor;
-
-    public CriteriaFactory(PropertyAccessor<ItemToFilter, PropertyType> accessor)
+    public static ComparableCriteriaFactory<ItemToFilter,PropertyType> has_an<PropertyType>(PropertyAccessor<ItemToFilter,PropertyType> accessor ) where PropertyType : IComparable<PropertyType>
     {
-      this.accessor = accessor;
-    }
-
-    public IMatchAn<ItemToFilter> equal_to(PropertyType value)
-    {
-      return equal_to_any(value);
-    }
-
-    public IMatchAn<ItemToFilter> equal_to_any(params PropertyType[] potential_values)
-    {
-      return new AnonymousCriteria<ItemToFilter>(x => new List<PropertyType>(potential_values).Contains(accessor(x)));
-    }
-
-    public IMatchAn<ItemToFilter> not_equal_to(PropertyType value)
-    {
-      return new NotMatch<ItemToFilter>(equal_to(value));
+      throw new NotImplementedException();
     }
   }
 }
