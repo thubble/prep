@@ -72,9 +72,11 @@
     <Compile Include="utility\searching\EqualToAny.cs" />
     <Compile Include="utility\searching\FilteringExtensionPoint.cs" />
     <Compile Include="utility\searching\FilteringExtensions.cs" />
+    <Compile Include="utility\searching\IEnableFiltering.cs" />
     <Compile Include="utility\searching\IMatchAn.cs" />
     <Compile Include="utility\searching\IsBetween.cs" />
     <Compile Include="utility\searching\FallsInRange.cs" />
+    <Compile Include="utility\searching\NegatingExtensionPoint.cs" />
     <Compile Include="utility\searching\NeverMatches.cs" />
     <Compile Include="utility\searching\NegatingMatch.cs" />
     <Compile Include="utility\searching\OrMatch.cs" />
