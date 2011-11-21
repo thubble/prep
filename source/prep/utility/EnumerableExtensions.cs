@@ -21,4 +21,9 @@ namespace prep.utility
       return items.all_items_matching(condition.matches);
     }
   }
+
+	public static class Where<T>
+	{
+
+	}
 }
