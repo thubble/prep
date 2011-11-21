@@ -1,7 +1,7 @@
 configs ={
   :git => {
     :user => '20111121iqmetrix',
-    :remotes => potentially_change("remotes",__FILE__),
+    :remotes => %w[adamkrieger libbyrobinson kyleschmitz Chris-Nicol jonhack stefanmoser thubble hainesmc vladislavi Schonhoffer WesleyF stevedawson ChristopherWolf AlexPrince artur-s kenkonkel deadlydog coolmars bradrhodes],
     :repo => 'prep' 
   }
 }
