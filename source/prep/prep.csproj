@@ -64,6 +64,7 @@
     <Compile Include="collections\MovieLibrary.cs" />
     <Compile Include="collections\ProductionStudio.cs" />
     <Compile Include="collections\ReadOnlySetOf.cs" />
+    <Compile Include="utility\AnonymousCriteria.cs" />
     <Compile Include="utility\Condition.cs" />
     <Compile Include="utility\CriteriaExtensions.cs" />
     <Compile Include="utility\EnumerableExtensions.cs" />
