@@ -75,7 +75,6 @@ namespace prep.specs
 
     public class when_iterating : movie_library_concern
     {
-      static int number_of_movies;
 
       Establish c = () =>
         Enumerable.Range(1,100).each(x => movie_collection.Add(new Movie()));

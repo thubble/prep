@@ -1,6 +1,4 @@
 using System;
-using prep.utility;
-using prep.utility.searching;
 
 namespace prep.collections
 {
@@ -16,7 +14,7 @@ namespace prep.collections
     {
       if (other == null) return false;
 
-      return ReferenceEquals(this,other) || this.title == other.title;
+      return ReferenceEquals(this, other) || this.title == other.title;
     }
 
     public override int GetHashCode()
@@ -29,24 +27,9 @@ namespace prep.collections
       return Equals(obj as Movie);
     }
 
-    public static IMatchAn<Movie> is_in_genre(Genre genre)
+    public override string ToString()
     {
-      return new IsInGenre(genre);
+      return this.title;
     }
-    public static IMatchAn<Movie> is_published_by(ProductionStudio studio)
-    {
-      return new IsPublishedBy(studio);
-    }
-
-    public static IMatchAn<Movie> is_published_by_pixar_or_disney()
-    {
-      return is_published_by(ProductionStudio.Pixar)
-        .or(is_published_by(ProductionStudio.Disney));
-    }
-
-	public override string ToString()
-	{
-		return this.title;
-	}
   }
 }
