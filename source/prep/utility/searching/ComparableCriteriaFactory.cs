@@ -1,15 +1,19 @@
 ﻿using System;
+using prep.utility.ranges;
 
 namespace prep.utility.searching
 {
   public class ComparableCriteriaFactory<ItemToFilter, PropertyType> : ICreateMatchers<ItemToFilter, PropertyType>
     where PropertyType : IComparable<PropertyType>
   {
-    PropertyAccessor<ItemToFilter, PropertyType> accessor;
-
     public IMatchAn<ItemToFilter> equal_to(PropertyType value)
     {
       return factory.equal_to(value);
+    }
+
+    public IMatchAn<ItemToFilter> create_using(IMatchAn<PropertyType> criteria)
+    {
+      return factory.create_using(criteria);
     }
 
     public IMatchAn<ItemToFilter> equal_to_any(params PropertyType[] potential_values)
@@ -22,28 +26,21 @@ namespace prep.utility.searching
       return factory.not_equal_to(value);
     }
 
-	  public IMatchAn<ItemToFilter> matches_condition(Condition<PropertyType> condition)
-	  {
-		  return factory.matches_condition(condition);
-	  }
+    ICreateMatchers<ItemToFilter, PropertyType> factory;
 
-  	ICreateMatchers<ItemToFilter, PropertyType> factory;
-
-    public ComparableCriteriaFactory(PropertyAccessor<ItemToFilter, PropertyType> accessor,
-                                     ICreateMatchers<ItemToFilter, PropertyType> factory)
+    public ComparableCriteriaFactory(ICreateMatchers<ItemToFilter, PropertyType> factory)
     {
-      this.accessor = accessor;
       this.factory = factory;
     }
 
     public IMatchAn<ItemToFilter> greater_than(PropertyType value)
     {
-      return matches_condition(x => x.CompareTo(value) > 0);
+      return create_using(new FallsInRange<PropertyType>(new RangeWithNoUpperBound<PropertyType>(value)));
     }
 
     public IMatchAn<ItemToFilter> between(PropertyType start, PropertyType end)
     {
-      return matches_condition(x => x.CompareTo(start) >= 0 && x.CompareTo(end) <= 0);
+      return create_using(new FallsInRange<PropertyType>(new InclusiveRange<PropertyType>(start, end)));
     }
   }
 }
