@@ -68,6 +68,7 @@
     <Compile Include="utility\searching\CriteriaExtensions.cs" />
     <Compile Include="utility\EnumerableExtensions.cs" />
     <Compile Include="utility\searching\CriteriaFactory.cs" />
+    <Compile Include="utility\searching\ICreateMatchers.cs" />
     <Compile Include="utility\searching\IMatchAn.cs" />
     <Compile Include="utility\searching\NeverMatches.cs" />
     <Compile Include="utility\searching\NegatingMatch.cs" />
