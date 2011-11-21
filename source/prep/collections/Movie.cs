@@ -9,10 +9,5 @@ namespace prep.collections
 	public Genre genre { get; set; }
 	public int rating { get; set; }
 	public DateTime date_published { get; set; }
-
-	//public Movie Clone()
-	//{
-	//    return new Movie() {title = title, production_studio = production_studio, genre = genre, rating = rating, date_published = date_published};
-	//}
   }
 }
