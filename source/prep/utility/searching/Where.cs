@@ -33,7 +33,7 @@ namespace prep.utility.searching
 
     public IMatchAn<ItemToFilter> not_equal_to(PropertyType value)
     {
-      throw new System.NotImplementedException();
+      return new NotMatch<ItemToFilter>(equal_to(value));
     }
   }
 }

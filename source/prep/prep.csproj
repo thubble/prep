@@ -70,6 +70,7 @@
     <Compile Include="utility\EnumerableExtensions.cs" />
     <Compile Include="utility\searching\IMatchAn.cs" />
     <Compile Include="utility\searching\NeverMatches.cs" />
+    <Compile Include="utility\searching\NotMatch.cs" />
     <Compile Include="utility\searching\OrMatch.cs" />
     <Compile Include="utility\searching\PropertyAccessor.cs" />
     <Compile Include="utility\searching\Where.cs" />
