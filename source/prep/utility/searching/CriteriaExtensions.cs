@@ -1,4 +1,4 @@
-﻿namespace prep.utility
+﻿namespace prep.utility.searching
 {
   public static class CriteriaExtensions
   {
@@ -6,5 +6,6 @@
     {
       return new OrMatch<T>(left, right);
     }
+
   }
 }

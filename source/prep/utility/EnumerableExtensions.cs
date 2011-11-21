@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using prep.collections;
+using prep.utility.searching;
 
 namespace prep.utility
 {
@@ -22,30 +24,4 @@ namespace prep.utility
     }
   }
 
-	public static class Where<T>
-	{
-		public static AnonymousHasAMatcher<T, TResult> has_a<TResult>(System.Func<T, TResult> selector)
-		{
-			return new AnonymousHasAMatcher<T, TResult>(selector);
-		}
-	}
-
-	public class AnonymousHasAMatcher<T, TResult>
-	{
-		private System.Func<T, TResult> _selector;
-		public AnonymousHasAMatcher(System.Func<T, TResult> selector)
-		{
-			_selector = selector;
-		}
-
-		public AnonymousCriteria<T> equal_to(TResult matchValue)
-		{
-			Condition<T> condition = (T value) =>
-										{
-											return object.Equals(_selector(value), matchValue);
-										};
-
-			return new AnonymousCriteria<T>(condition);
-		}
-	}
 }

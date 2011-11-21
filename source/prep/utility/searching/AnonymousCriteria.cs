@@ -1,4 +1,4 @@
-﻿namespace prep.utility
+﻿namespace prep.utility.searching
 {
   public class AnonymousCriteria<T> : IMatchAn<T>
   {
