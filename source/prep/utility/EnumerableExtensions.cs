@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using prep.collections;
 using prep.utility.searching;
 
 namespace prep.utility
@@ -30,5 +29,4 @@ namespace prep.utility
       return sorted;
     }
   }
-
 }

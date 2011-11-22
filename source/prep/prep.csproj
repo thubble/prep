@@ -83,7 +83,9 @@
     <Compile Include="utility\searching\PropertyAccessor.cs" />
     <Compile Include="utility\searching\PropertyMatch.cs" />
     <Compile Include="utility\searching\Where.cs" />
-    <Compile Include="utility\sort\DescendingComparer.cs" />
+    <Compile Include="utility\sort\CombinedComparer.cs" />
+    <Compile Include="utility\sort\ComparableComparer.cs" />
+    <Compile Include="utility\sort\ReverseComparer.cs" />
     <Compile Include="utility\sort\Sort.cs" />
   </ItemGroup>
   <ItemGroup>
