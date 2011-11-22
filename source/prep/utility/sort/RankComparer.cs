@@ -1,36 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using prep.utility.searching;
+﻿using System.Collections.Generic;
 
 namespace prep.utility.sort
 {
-    public class RankComparer<ItemToSort, PropertyType> : IComparer<ItemToSort>
+  public class RankComparer<PropertyType> : IComparer<PropertyType>
+  {
+    IList<PropertyType> rankings;
+
+    public RankComparer(params PropertyType[] rankings)
     {
-        protected PropertyAccessor<ItemToSort, PropertyType> accessor;
-        protected PropertyType[] rankings;
-
-        public RankComparer(PropertyAccessor<ItemToSort, PropertyType> accessor, params PropertyType[] rankings)
-        {
-            this.accessor = accessor;
-            this.rankings = rankings;
-        }
-
-        public int Compare(ItemToSort x, ItemToSort y)
-        {
-            if (FindRankOf(accessor(x)) == FindRankOf(accessor(y)))
-                return 0;
-            if (FindRankOf(accessor(x)) > FindRankOf(accessor(y)))
-                return 1;
-
-            return -1;
-        }
-
-        private int FindRankOf(PropertyType itemToFindRank)
-        {
-            var listOfRankings = new List<PropertyType>(rankings);
-            return listOfRankings.IndexOf(itemToFindRank);
-        }
+      this.rankings = new List<PropertyType>(rankings);
     }
+
+    public int Compare(PropertyType x, PropertyType y)
+    {
+      return rankings.IndexOf(x).CompareTo(rankings.IndexOf(y));
+    }
+  }
 }

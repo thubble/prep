@@ -1,22 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using prep.utility.searching;
 
 namespace prep.utility.sort
 {
-  public class ComparableComparer<ItemToSort, PropertyType> : IComparer<ItemToSort>
+  public class ComparableComparer<PropertyType> : IComparer<PropertyType>
     where PropertyType : IComparable<PropertyType>
   {
-    protected PropertyAccessor<ItemToSort, PropertyType> accessor;
-
-    public ComparableComparer(PropertyAccessor<ItemToSort, PropertyType> accessor)
+    public int Compare(PropertyType x, PropertyType y)
     {
-      this.accessor = accessor;
-    }
-
-    public int Compare(ItemToSort x, ItemToSort y)
-    {
-      return accessor(x).CompareTo(accessor(y));
+      return x.CompareTo(y);
     }
   }
 }

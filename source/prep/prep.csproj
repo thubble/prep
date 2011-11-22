@@ -85,6 +85,8 @@
     <Compile Include="utility\searching\Where.cs" />
     <Compile Include="utility\sort\CombinedComparer.cs" />
     <Compile Include="utility\sort\ComparableComparer.cs" />
+    <Compile Include="utility\sort\ComparerBuilder.cs" />
+    <Compile Include="utility\sort\PropertyComparer.cs" />
     <Compile Include="utility\sort\RankComparer.cs" />
     <Compile Include="utility\sort\ReverseComparer.cs" />
     <Compile Include="utility\sort\Sort.cs" />
