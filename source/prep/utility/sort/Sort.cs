@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using prep.collections;
 using prep.utility.searching;
 
 namespace prep.utility.sort
@@ -18,7 +19,7 @@ namespace prep.utility.sort
     public static ComparerBuilder<ItemToSort> by<PropertyType>(PropertyAccessor<ItemToSort, PropertyType> accessor,
                                                                params PropertyType[] rankings)
     {
-      throw new NotImplementedException();
+        return new ComparerBuilder<ItemToSort>(new RankComparer<ItemToSort, PropertyType>(accessor, rankings));
     }
 
     public static ComparerBuilder<ItemToSort> by<PropertyType>(PropertyAccessor<ItemToSort, PropertyType> accessor)
@@ -28,7 +29,9 @@ namespace prep.utility.sort
     }
   }
 
-  public class ComparerBuilder<ItemToSort> : IComparer<ItemToSort>
+  
+
+    public class ComparerBuilder<ItemToSort> : IComparer<ItemToSort>
   {
     IComparer<ItemToSort> comparer;
 
@@ -42,10 +45,14 @@ namespace prep.utility.sort
       return comparer.Compare(x, y);
     }
 
-    public ComparerBuilder<ItemToSort> then_by<PropertyType>(PropertyAccessor<ItemToSort, PropertyType> accessor,
-                                                             params PropertyType[] values)
-    {
-      throw new NotImplementedException();
-    }
+    //public ComparerBuilder<ItemToSort> then_by<PropertyType>(PropertyAccessor<ItemToSort, PropertyType> accessor,
+    //                                                         params PropertyType[] values)
+    //{
+    //    return new ComparerBuilder<ItemToSort>(comparer, new );
+    //}
+        public CombinedComparer<ItemToSort> then_by<PropertyType>(PropertyAccessor<ItemToSort, PropertyType>accessor ) where PropertyType : IComparable<PropertyType>  
+        {
+            return new CombinedComparer<ItemToSort>(comparer, new ComparableComparer<ItemToSort, PropertyType>(accessor));
+        }
   }
 }
