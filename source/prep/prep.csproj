@@ -83,6 +83,8 @@
     <Compile Include="utility\searching\PropertyAccessor.cs" />
     <Compile Include="utility\searching\PropertyMatch.cs" />
     <Compile Include="utility\searching\Where.cs" />
+    <Compile Include="utility\sort\DescendingComparer.cs" />
+    <Compile Include="utility\sort\Sort.cs" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
@@ -101,6 +103,7 @@
       <Install>true</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

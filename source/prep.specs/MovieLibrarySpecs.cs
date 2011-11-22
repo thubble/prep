@@ -8,6 +8,7 @@ using prep.collections;
 using prep.specs.utility;
 using prep.utility;
 using prep.utility.searching;
+using prep.utility.sort;
 
 /* The following set of Context/Specification pairs are in place to specify the functionality that you need to complete for the MovieLibrary class.
  * MovieLibrary is an collection of Movie. It exposes the ability to search,sort, and iterate over all of the movies that it contains.
