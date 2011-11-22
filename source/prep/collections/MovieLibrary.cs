@@ -33,15 +33,16 @@ namespace prep.collections
 
 	private class SortComparer<TItem> : IComparer<TItem>
 	{
-		private readonly Func<TItem, TItem, int> _compFunc;
-		public SortComparer(Func<TItem, TItem, int> compFunc)
+		private readonly Func<TItem, TItem, int> comparison;
+
+		public SortComparer(Func<TItem, TItem, int> comparison)
 		{
-			_compFunc = compFunc;
+			this.comparison = comparison;
 		}
 
 		public int Compare(TItem x, TItem y)
 		{
-			return _compFunc(x, y);
+			return comparison(x, y);
 		}
 	}
 
