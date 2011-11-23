@@ -76,7 +76,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BloomFilterSpecs.cs" />
-    <Compile Include="MovieLibrarySpecs.cs" />
     <Compile Include="utility\CollectionExtensions.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -29,20 +29,17 @@ namespace prep.specs
 			Establish c = () =>
 			{
 				words_collection = new List<string>();
-				depends.on(words_collection);
+				LoadWords();
 			};
 		};
 
 		public class when_building_list_of_dictionary_words : bloom_filter_concern
 		{
-
-			Establish c = () =>
+			Because b = () =>
 							{
-								LoadWords();
+								sut.BuildTable(words_collection);
+								result = sut.CheckWord("fkdk");
 							};
-
-			Because b = () => 
-				result = sut.CheckWord("fkdk");
 
 			It should_iterate = () =>
 			{
